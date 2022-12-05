@@ -16,7 +16,7 @@ def n2():
 
 def n3 ():
     string = input("Введите строку: ")
-    print(string[-2:][::-1])
+    print("Результат: {}".format(string[-2:][::-1]))
 
 def n4 ():
     r = float(input("Введите радиус круга:"))

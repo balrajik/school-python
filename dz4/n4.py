@@ -25,6 +25,7 @@ class inventory:
             print("Предмета с таким номером не существует")
             self.show_inventory()
         else:
+            self.current_weight -= self.items[index-1].get_weight()
             self.items.pop(index-1)
             self.show_inventory()
 
@@ -47,6 +48,7 @@ class inventory:
             self.show_inventory()
         else:
             print("Неверный ввод")
+            self.show_inventory()
 
 
     def show_inventory(self):

@@ -1,4 +1,13 @@
 def check_password(password):
+    """Проверка пароля
+
+    Параметры:
+        password - пароль
+
+    Возвращает:
+        True - Пароль подходит условиям
+        False - Пароль не подходит условиям
+    """
     if len(password) < 6:      
         return False
     elif password.isalpha():

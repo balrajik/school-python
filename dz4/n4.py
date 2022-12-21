@@ -3,16 +3,23 @@ class inventory:
     current_weight = 0
 
 
-    def __init__(self,max_weight):
+    def __init__(self, max_weight):
+        """Конструктор
+        
+        Задаётся максимальная вместимость инвентаря.
+        """
         self.max_weight = max_weight
     
 
     def add_item(self):
+        """
+        Добавление предмета в инвентарь
+        """
         name = input("Введите имя: ")
         weight = float(input("Введите вес: "))
         if self.current_weight + weight <= self.max_weight:
-            self.items.append(item(name,weight))
-            self.current_weight +=weight
+            self.items.append(item(name, weight))
+            self.current_weight += weight
             self.show_inventory()
         else:
             print("Слишком большой вес")
@@ -20,29 +27,35 @@ class inventory:
 
 
     def remove_item(self):
+        """
+        Удаление предмета из инвентаря.
+        """
         index = int(input("Введите номер предмета: "))
         if index-1 >= len(self.items):
             print("Предмета с таким номером не существует")
             self.show_inventory()
         else:
-            self.current_weight -= self.items[index-1].get_weight()
-            self.items.pop(index-1)
+            self.current_weight -= self.items[index - 1].get_weight()
+            self.items.pop(index - 1)
             self.show_inventory()
 
 
     def sort_inventory(self):
+        """
+        Сортировка предметов в инвентаре.
+        """
         choice = input("1 - Сначала лёгкие.\n2 - сначала тяжёлые.\n3 - назад.\n Ввод:") 
         if choice == '1':
-            for i in range(len(self.items)-1):
+            for i in range(len(self.items) - 1):
                 for j in range (len(self.items)-i-1):
-                    if self.items[j].get_weight() > self.items[j+1].get_weight():
-                        self.items[j], self.items[j+1] = self.items[j+1], self.items[j]
+                    if self.items[j].get_weight() > self.items[j + 1].get_weight():
+                        self.items[j], self.items[j + 1] = self.items[j + 1], self.items[j]
             self.show_inventory()
         elif choice == '2':
-            for i in range(len(self.items)-1):
-                for j in range (len(self.items)-i-1):
-                    if self.items[j].get_weight() < self.items[j+1].get_weight():
-                        self.items[j], self.items[j+1] = self.items[j+1], self.items[j]
+            for i in range(len(self.items) - 1):
+                for j in range (len(self.items) - i-1):
+                    if self.items[j].get_weight() < self.items[j + 1].get_weight():
+                        self.items[j], self.items[j + 1] = self.items[j + 1], self.items[j]
             self.show_inventory()
         elif choice == '3':
             self.show_inventory()
@@ -52,6 +65,9 @@ class inventory:
 
 
     def show_inventory(self):
+        """
+        Вывод содержимого инвентаря.
+        """
         print(f"Вес инвентаря: {self.current_weight}/{self.max_weight}\n____________________________")
         if len(self.items) is 0:
                 print("Инвентарь пуст")
@@ -71,7 +87,11 @@ class inventory:
 
 class item:
 
-    def __init__(self,name,weight) :
+    def __init__(self, name, weight) :
+        """Конструктор
+
+        Задаётся имя предмета и его вес
+        """
         self.name = name
         self.weight = weight
         

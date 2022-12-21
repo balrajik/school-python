@@ -1,0 +1,8 @@
+Пакеты, присутствующие только в venv:
+    asgiref,
+    Django,
+    numpy,
+    psycopg2,
+    sqlparse,
+    tzdata
+    

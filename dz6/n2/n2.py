@@ -1,5 +1,5 @@
 def main():
-    with open('n2/Input.txt', 'r',) as file:
+    with open('n2/Input.txt', 'r') as file:
         string = file.read()
     lst = string.split(',')
     c = int(lst[0])
